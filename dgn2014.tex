@@ -1,0 +1,534 @@
+\documentclass[12pt,addpoints,noanswers]{exam}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{polynom}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+
+%\printanswers
+
+\firstpageheader{}{\textbf{SPISE 2014 Calculus Diagnostic Test}}{} 
+\runningheadrule 
+\runningheader{\textit{SPISE 2014}}{\textit{Calculus Diagnostic}}{\textit{Page \thepage\ of \numpages}}
+
+\firstpagefooter{}{}{Continue to the next page\ldots } 
+\runningfooter{}{}{\iflastpage{End of Test}{Continue to the next page\ldots }}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Solution:}\par\noindent} 
+\setlength\linefillheight{0.35in} %adjust height of printed lines
+
+%declare user-defined macro
+\pgfplotsset{my style/.append style={axis x line=middle, axis y line=
+middle, xlabel={$x$}, ylabel={$y$}, axis equal}}
+
+\begin{document}
+{\textbf{Name of Student}:\enspace\hrulefill}\vspace{0.1in}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+This diagnostic test consists of \textbf{\numquestions} questions and \textbf{\numpages} pages.\\
+It is to be completed in \textbf{50 minutes}.\\ \vspace{0.1in}
+Answer the questions in the spaces provided \textbf{on} the question sheets. If you run out of space for an answer, continue on the back of the page.\\
+\textbf{No} books or calculators are allowed.\\ \vspace{0.1in}
+Please attempt as many problems as possible. If a problem seems too difficult, move on to the next one. We are interested in learning about your thinking process and how much you already know about the topics covered in this test. Finally, always show your work and reasoning -just indicating an answer is not enough!}}}
+\end{center} 
+
+\begin{questions} %start of diagnostic test
+\section*{Algebra}
+\question Find the numerical value of $\displaystyle \left( \frac{-27}{8}\right)^{\sfrac{2}{3}}$.
+\begin{solution}[3in]
+$\displaystyle \left( \frac{-27}{8}\right)^{\sfrac{2}{3}} = \left( \frac{\sqrt[3]{-27}}{\sqrt[3]{8}}\right)^{2} =  \left( \frac{-3}{2}\right)^{2} = \frac{9}{4} $
+\end{solution}
+
+\question 
+\begin{parts}
+\part\label{sigma} 
+Write $\displaystyle \log\frac{1}{2} + \log\frac{2}{3} + \log\frac{3}{4} + \ldots + \log\frac{9}{10}$ using Sigma notation.
+\begin{solution}[1in]
+$\displaystyle \log\frac{1}{2} + \log\frac{2}{3} + \ldots + \log\frac{9}{10}
+= \sum\limits_{n=1}^{9} \log\frac{n}{n+1}$
+\end{solution}
+
+\part Evaluate the sum in part~(\ref{sigma}).
+\begin{solution}[1.5in]
+\textit{Method 1:}\\
+\begin{align*}
+\displaystyle \log\frac{1}{2} + \log\frac{2}{3} + \log\frac{3}{4} + \ldots + \log\frac{9}{10} &= \log \left(\frac{1}{2}\times\frac{2}{3}\times\frac{3}{4}\times\ldots\times\frac{9}{10}\right)\\
+&= \log \frac{1}{10}\\
+&= \log 1 - \log 10\\
+&= 0 - 1\\
+&= -1
+\end{align*}
+\textit{Method 2:}\\
+Alternatively,
+\begin{align*}
+\displaystyle \sum\limits_{n=1}^{9} \log\frac{n}{n+1} &=\sum\limits_{n=1}^{9} \left( \log{n} - \log(n+1) \right)\\
+&=(\log 1 - \log 2) + (\log 2 - \log 3) + \ldots + (\log 9 - \log 10)\\
+&=\log 1 - \log 10\\
+&=-1 
+\end{align*}
+\end{solution}
+\end{parts}
+
+\question Simplify
+\begin{parts}
+\part $\mathrm{e}^{\displaystyle \ln 3t}$
+\begin{solution}[0.5in]
+\textit{Method 1:}\\
+Put $ y=\mathrm{e}^{\displaystyle \ln 3t}$. Taking natural logs of both sides,
+\begin{align*}
+\ln y &= \ln \left(\mathrm{e}^{\displaystyle \ln 3t}\right)\\
+&=\ln 3t\\
+\implies y &= 3t 
+\end{align*}
+by one-to-oneness of the log function. Hence, back-substituting for $y$, $$\mathrm{e}^{\displaystyle \ln 3t} = 3t.$$
+\textit{Method 2:}\\
+Alternatively,
+$\mathrm{e}^{\displaystyle \ln 3t} = 3t$ since the natural exponential is the inverse function of the natural logarithm.
+\end{solution}
+
+\part $\dfrac{x^2 + x - 6}{x-2}, \,x\neq 2$.
+\begin{solution}[1in]
+\textit{Method 1:}\\
+$$\dfrac{x^2 + x - 6}{x-2} =\dfrac{(x-2)(x+3)}{x-2} = x+3,\, \text{since $x\ne 2$}$$
+\textit{Method 2:}\\
+Alternatively,\\ \[\polylongdiv{x^2+x-6}{x-2}\] also gives us $\dfrac{x^2 + x - 6}{x-2} = x+3$\\
+\end{solution}
+\end{parts}
+
+
+\question Factorize $x^3-8$.
+\begin{solution}[1in]
+\textit{Method 1:}\\
+Since $$(a^3-b^3)=(a-b)(a^2 + ab +b^2),$$it follows that $$x^3 - 8 = x^3 - 2^3 = (x-2)(x^2 + 2x + 4).$$
+\textit{Method 2:}\\
+Alternatively, let $p(x)= x^3-8$. By the Remainder theorem, $p(2)=0 $ implies $(x-2)$ is a factor of $x^3-8$ so that \[ \polylongdiv{x^3-8}{x-2} \] therefore
+\[\dfrac{x^3-8}{x-2}= (x^2 + 2x + 4) + \dfrac{0}{x-2}.\] 
+Hence,
+\[x^3-8 = (x-2)(x^2 + 2x + 4).\]
+\end{solution}
+
+
+\question
+\begin{parts}
+\part \label{quadratic_formula}
+Give a formula for the roots of the quadratic equation $4y + cy^2 + b = 0$ 
+in terms of  $b$ and $c$.
+\begin{solution}[1.5in]
+Using the quadratic formula we have
+$$y = \dfrac{-4 \pm \sqrt{16 - 4bc}}{2c}
+= \dfrac{-2 \pm \sqrt{4 - bc}}{c}$$
+\end{solution}
+
+\part Hence or otherwise find the roots of $4y + 4y^2 + 1 = 0$. 
+\begin{solution}[1in]
+Hence, substituting $c=4$ and $b=1$ into the formula derived in part~(\ref{quadratic_formula}) yields the repeated root
+$$ y = \dfrac{-2 \pm \sqrt{4 - 1\times 4}}{4} = -\dfrac{1}{2}.$$
+Otherwise,
+$$4y^2 + 4y + 1 = 0 \implies (2y + 1)^2 = 0 \implies y= -\dfrac{1}{2} \hspace{0.5cm}\text{(twice)}$$
+\end{solution}
+\end{parts}
+
+
+
+\section*{Coordinate Geometry}
+\question Find the equation of the line through the point $(-2,1)$ and parallel to the line $3y - 2x = 5$.
+\begin{solution}[1.5in]
+If the line is parallel to 
+\begin{align*}
+3y - 2x &= 5\\
+y &= \dfrac{5+2x}{3}
+\end{align*}
+then its gradient is $\dfrac{2}{3}$. Thus the equation of the line passing through the given point is
+\begin{align*}
+(y-1) &= \dfrac{2}{3}(x+2)\\
+y &= \dfrac{2}{3}x +\dfrac{7}{3}.
+\end{align*}
+\end{solution}
+
+
+\question Find the equation of the circle with the straight line joining $A(1,3)$ and $B(5, -1)$ as diameter.
+\begin{solution}[2in]
+\textit{Method 1:}\\
+Given the midpoint O of the diameter AB is 
+$$O\left(\dfrac{1+5}{2}, \dfrac{3-1}{2}\right)
+=O(3,1)$$ and the
+$$ \text{radius} 
+= \dfrac{|AB|}{2} 
+=\dfrac{\sqrt{(1-5)^2+(3+1)^2}}{2} 
+=\dfrac{\sqrt{32}}{2} 
+= \sqrt{8},$$ 
+the equation of the circle in standard form is 
+\[ (x-3)^2+(y-1)^2 = 8 \] 
+or
+\[x^2-6x+y^2-2y=-2\]
+in non-standard form.
+\\
+\textit{Method 2:}\\
+Because the central angle at the diameter $AB$ is $180^\circ$, the angle at formed by an arbitrary point $P(x,y)$ at the circumference on the diameter will be $90^\circ$. Thus, given the sides $AP$ and $BP$ are perpendicular\\
+\begin{align*}
+m_{AP}\cdot m_{BP} &= -1 \\
+\dfrac{y-3}{x-1} \cdot \dfrac{y+1}{x-5} &= -1\\
+y^2-2y-3 &= -x^2 +6x - 5\\
+x^2 -6x +y^2 -2y &=-2
+\end{align*}
+\\
+\textit{Method 3}\\
+Rearranging $ m_{AP}\cdot m_{BP} = -1 $ from \textit{Method 2} we derive the following formula for the equation of the circle
+\[ (x-x_A)(x-x_B)+(y-y_A)(y-y_B)=0. \]
+Given $A(1,3)$ and $B(5,-1)$:
+\begin{align*}
+(x-1)(x-5)+(y-3)(y+1) &= 0\\
+x^2-6x+y^2-2y+2&= 0.
+\end{align*} 
+\\
+\textit{Method 4}\\
+Since the points $A(1,3)$, $B(5, -1)$ and $P(x,y)$ are the vertices of a right triangle with legs of length:
+$$|AP|= \sqrt{(x-1)^2+(y-3)^2}$$
+$$|BP|= \sqrt{(x-5)^2+(y+1)^2}$$
+and hypotenuse
+$$|AB|= \sqrt{32} $$ 
+it follows that by Pythagoras' theorem the equation of the circle is
+\begin{align*}
+|AP|^2 + |BP|^2 &= |AB|^2\\
+(x-1)^2+(y-3)^2 + (x-5)^2+(y+1)^2 &= 32\\
+2x^2- 12x + 2y^2 - 4y +36 &= 32\\
+x^2-6x+ y^2 - 2y + 18 &= 16\\
+x^2 -6x +y^2 -2y &=-2.
+\end{align*}
+\end{solution}
+
+
+
+\section*{Trigonometry}
+\question Convert
+\begin{parts}
+\part $45^\circ$ to radians
+\begin{solution}[1in]
+Given $180^\circ = \pi$, 
+\begin{align*}
+1^\circ &= \frac{\pi}{180}\\
+45^\circ &= \frac{\pi}{180}\times 45\\
+&= \frac{\pi}{4}
+\end{align*}
+\end{solution}
+
+\part $\dfrac{7\pi}{4}$ to degrees.
+\begin{solution}[1in]
+\[ \dfrac{7}{4}\pi=\dfrac{7}{4}\times 180^\circ = 315^\circ\]
+\end{solution}
+\end{parts}
+
+
+\question Simplify the expressions 
+\begin{parts}
+\part $3 \sin^2 5\theta + 3\cos^2 5\theta$
+\begin{solution}[0.75in]
+\begin{align*}
+3 \sin^2 5\theta + 3\cos^2 5\theta &= 3(\sin^2 5\theta + \cos^2 5\theta)\\
+&= 3(1)\\
+&=3
+\end{align*}
+\end{solution}
+
+\part $-\sec^2 \theta + \tan^2 \theta$.
+\begin{solution}[0.75in]
+\[-\sec^2 \theta + \tan^2 \theta\\
+=-(\tan^2\theta + 1)+ \tan^2 \theta\\
+=-1\]
+Alternatively,
+\[-\sec^2 \theta + \tan^2 \theta
+=\dfrac{-1+\sin^2\theta}{\cos^2\theta}
+=\dfrac{-\cos^2\theta}{\cos^2\theta}
+=-1\]
+\end{solution}
+\end{parts}
+
+
+\question Find all the solutions to the equation 
+$\cos 2x = \dfrac{1}{2} $ for $0\leq x \leq \pi$.
+\begin{solution}[2in]
+Let $\theta=2x$.
+Then
+\begin{align*}
+\cos\theta &= \frac{1}{2}\\
+\theta &= \arccos\left( \frac{1}{2} \right)\\
+\theta &= \begin{cases}
+\frac{\pi}{3} + 2k\pi\\
+\frac{5\pi}{3} + 2k\pi \\
+\end{cases}\text{where k is an integer,}
+\end{align*} 
+is the general solution of the original equation for  $0\leq \theta \leq 2\pi$. Back-substituting for $\theta$ yields
+\begin{align*}
+x &= \begin{cases}
+\frac{\pi}{6} + k\pi \\
+\frac{5\pi}{6} + k\pi. \\
+\end{cases}
+\end{align*}
+Hence, $x= \dfrac{\pi}{6}, \dfrac{5\pi}{6}$  for $0\leq x \leq \pi$.
+\end{solution}
+
+
+
+\section*{Functions}
+\question For the piecewise (or compound) function 
+\[ f(x) =
+\begin{cases}
+-5 &\text{ if } x < -2 \\
+x^2 &\text{ if } -2 \leq x,
+\end{cases} \]
+find the value of $ 2f(-3) - f(2) $.
+\begin{solution}[1in]
+$ 2f(-3) - f(2)
+= (2\times-5)-2^2
+=-14$
+\end{solution}
+
+
+\question If $ f(x) = x-3 $ and $ g(x)= 4x^2 $,
+\begin{parts}
+\part Find the composite functions: 
+\begin{subparts}
+\subpart $(f \circ g)(t)$ 
+\begin{solution}[2.5in]
+\begin{align*}
+(f \circ g)(t) &= f(g(t))\\
+&=f(4t^2)\\
+&=4t^2-3
+\end{align*}
+\end{solution}
+\subpart $(g \circ f)(t)$
+\begin{solution}[2.5in]
+\begin{align*}
+(g \circ f)(t) &= g(f(t))\\
+&=g(t-3)\\
+&=4(t-3)^2\\
+&= 4t^2 -24t +36
+\end{align*}
+\end{solution}
+\end{subparts}
+
+\part Determine the values of $t$ for which these two functions are equal.
+\begin{solution}[2.5in]
+When the functions are equal
+\begin{align*}
+4t^2-3 &= 4t^2 -24t +36\\
+24t &=39\\
+t &= \dfrac{13}{8}
+\end{align*}
+\end{solution}
+\end{parts}
+
+
+\question Find,
+\begin{parts}
+\part  $ \displaystyle \lim_{x \to \infty} \dfrac{1}{x} $ 
+\begin{solution}[0.5in]
+\textit{Method 1:}\\
+To answer, we must ask ourselves the question: ``As  $x$ goes to (positive) infinity, how does the function $y=\dfrac{1}{x}$ behave?"
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[my style, minor tick num=1, restrict y to domain=-7:7]
+\addplot[domain=-7:7, samples=200]{1/x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+From the sketch, observe that as the $x$'s get larger the curve (see first quadrant) falls closer and closer to the $x$-axis (i.e. the $y$'s get smaller) but does not intercept it. Thus, as $x\to\infty$, $y\to 0$. Hence,
+$$ \displaystyle \lim_{x \to \infty} \dfrac{1}{x}=0 $$
+\textit{Method 2:}\\
+Using l'Hopital's rule, $$ \displaystyle \lim_{x \to \infty} \dfrac{1}{x}= \lim_{x \to \infty} \dfrac{0}{1} = \lim_{x \to \infty} 0 = 0 $$
+\end{solution}
+
+\part  $ \displaystyle \lim_{x \to 1} \dfrac{x^2 -1}{x-1} $.
+\begin{solution}[1.5in]
+\textit{Method 1:}\\
+$$ \displaystyle \lim_{x \to 1} \dfrac{x^2 -1}{x-1} 
+= \displaystyle \lim_{x \to 1} \dfrac{(x-1)(x+1)}{x-1} 
+= \displaystyle \lim_{x \to 1} (x+1)
+= 2. $$
+\textit{Method 2:}\\
+Using l'Hopital's rule,
+$$ \displaystyle \lim_{x \to 1} \dfrac{x^2 -1}{x-1} 
+= \displaystyle \lim_{x \to 1} \dfrac{2x}{1} 
+= \displaystyle \lim_{x \to 1} 2
+= 2. $$
+\end{solution}
+\end{parts}
+
+
+\question
+\begin{parts}
+\part \label{sketchExp}
+Sketch the function $ f(x)= \mathrm{e}^x $.
+\begin{solution}[2in]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[my style, minor tick num=1]
+\addplot[domain=-5:2]{exp(x)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{solution}
+
+\part What is the
+\begin{subparts}
+\subpart domain of $f(x)$?
+\begin{solution}[1in]
+Domain: $-\infty <x< \infty$
+\end{solution}
+\subpart range of $f(x)$?
+\begin{solution}[1in]
+Range: $ 0 <f(x)< \infty$
+\end{solution}
+\end{subparts}
+
+\part From your sketch in part~(\ref{sketchExp}), 
+\begin{subparts}
+\subpart $ \displaystyle \lim_{x \to -\infty} f(x) = $
+\begin{solution}[0.25in]
+$ \displaystyle \lim_{x \to -\infty} f(x) 
+= \displaystyle \lim_{x \to -\infty} \mathrm{e}^x 
+= 0$
+\end{solution}
+\subpart $ \displaystyle \lim_{x \to +\infty} f(x) =$
+\begin{solution}[0.25in]
+$ \lim_{x \to +\infty} f(x) 
+= \lim_{x \to +\infty} \mathrm{e}^x 
+= +\infty $
+\end{solution}
+\end{subparts}
+
+\part Is $f(x)$ continuous at $x=0$? Explain your answer.
+\begin{solutionorlines}[1.5in]
+Yes. Because $ \displaystyle \lim_{x \to 0} \mathrm{e}^x = 1$ it satisfies the \textbf{definition of continuity}. Or, there is no break in the graph of $\mathrm{e}^x $ so it is therefore continuous.
+\end{solutionorlines}
+\end{parts}
+
+
+
+\section*{Differentiation}
+\question
+\begin{parts}
+\part Let $f(x) = x^3 -5x^2 +3x +2$.
+\begin{subparts}
+\subpart
+Calculate the derivative $ f^\prime(x) $.
+\begin{solution}[0.75in]
+$ f^\prime(x) = 3x^2 -10x +3$
+\end{solution}
+\subpart \label{derivative}
+Evaluate the $ f^\prime(x) $ at $ x=2 $.
+\begin{solution}[0.75in]
+ $ f^\prime(2)=12-20+3=-5 $
+\end{solution}
+\end{subparts}
+
+\part State one interpretation of the value found in part~(\ref{derivative})?
+\begin{solutionorlines}[0.75in]
+\begin{itemize}
+\item As $x$ increases 1 unit, $y$ decreases 2 units.
+\item The (marginal) rate of change of $ y $ with respect to $ x $ is $-2$.
+\item The slope/gradient of tangent line is falling at a rate of $2$.
+\end{itemize}
+\end{solutionorlines}
+\end{parts}
+
+
+\question Find $ \dfrac{\mathrm{d}y}{\mathrm{d}x} $ for,
+\begin{parts}
+\part $ y= \ln x, \, x>0 $
+\begin{solution}[1in]
+In general \[\frac{\mathrm{d}}{\mathrm{d}x} \left( \ln f(x) \right) = \dfrac{f^\prime(x)}{f(x)}.\]
+Therefore, since in this case $f(x)=x$, $$ \dfrac{\mathrm{d}}{\mathrm{d}x} (\ln x) = \dfrac{\mathrm{d}y}{\mathrm{d}x} = \dfrac{1}{x}$$
+\end{solution}
+
+\part $ y = \mathrm{e}^x \sin x$.
+\begin{solution}[1in]
+\begin{align*}
+\dfrac{\mathrm{d}y}{\mathrm{d}x} &= \mathrm{e}^x (\cos x) + \sin x(\mathrm{e}^x)\\
+&= \mathrm{e}^x (\cos x + \sin x)
+\end{align*}
+\end{solution}
+\end{parts}
+
+
+
+\section*{Integration}
+\question Find
+\begin{parts}
+\part $\int (x^4 +7) \,\mathrm{d}x$
+\begin{solution}[1in]
+$\int (x^4 +7) \,\mathrm{d}x 
+= \dfrac{x^5}{5} + 7x + c $
+\end{solution}
+
+\part $\int x \cos x^2 \,\mathrm{d}x$
+\begin{solution}[2in]
+Put $u=x^2$. Then $\dfrac{\mathrm{d}u}{\mathrm{d}x} = 2x \implies \mathrm{d}u = 2x\,\mathrm{d}x$.\\
+Hence,
+\begin{align*}
+\int x \cos x^2 \,\mathrm{d}x &= \int \cos x^2 (x\,\mathrm{d}x)\\ 
+&= \int \cos u \cdot\dfrac{1}{2}\mathrm{d}u\\
+&= \dfrac{1}{2}\int \cos u \, \mathrm{d}u\\
+&=\dfrac{1}{2}\sin u +c\\
+&=\dfrac{1}{2}\sin x^2 +c
+\end{align*}
+\end{solution}
+
+\part $ \int\limits_{\displaystyle -\nicefrac{\pi}{2}}^{\nicefrac{\pi}{2}} \sin x \, \mathrm{d}x $.
+\begin{solution}[2in]
+\begin{align*}
+\int\limits_{\displaystyle -\nicefrac{\pi}{2}}^{\nicefrac{\pi}{2}} \sin x \, \mathrm{d}x  &= -\cos x \Big\vert^{\displaystyle \nicefrac{\pi}{2}}_{\displaystyle \nicefrac{-\pi}{2}}\\ 
+&= \left(-\cos \dfrac{\pi}{2}\right) - \left(-\cos \dfrac{-\pi}{2}\right)\\
+&= 0+0\\
+&= 0
+\end{align*}
+\end{solution}
+\end{parts}
+
+
+\question Briefly give an interpretation of the integral of a function
+$f(x), \, a\leq x \leq b$.
+\begin{solutionorlines}[1in]
+The definite integral $ \int\limits_{a}^{b} f(x)\,\mathrm{d}x$ is the area of the region bounded under the curve $f(x)$ between $ a\leq x \leq b $.
+\end{solutionorlines}
+
+
+\question
+\begin{parts}
+\part Sketch the graph of the function $ y = \sin x$ for $ \displaystyle -\frac{\pi}{2} \leq x \leq \frac{\pi}{2}$.
+\begin{solution}[2in]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[my style]
+\addplot[fill=red,opacity=0.5, domain=-pi/2:pi/2](\x,{sin(\x r)})  \closedcycle;
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{solution}
+
+\part Determine the area of the region bounded by the graph of $y=\sin x$, the vertical lines $ x = -\dfrac{\pi}{2}$, $ x = \dfrac{\pi}{2}$ and the $x$-axis.
+\begin{solution}[2in]
+\textit{Method 1:}\\
+Because $\sin x$ is symmetric, the areas of the coloured regions above and below the $x$-axis are the equal. Therefore,
+\begin{align*}
+\text{Area} &= \int\limits_{\displaystyle -\nicefrac{\pi}{2}}^{\nicefrac{\pi}{2}} \sin x \, \mathrm{d}x\\
+&= 2\int\limits_{0}^{\displaystyle \nicefrac{\pi}{2}} \sin x \, \mathrm{d}x \, \\
+&= 2\left( -\cos x \Big\vert^{\displaystyle \nicefrac{\pi}{2}}_0 \right)\\ 
+&= 2(0+1)\\
+&= 2
+\end{align*}
+Alternatively, \\
+\\ \textit{Method 2:}\\
+Since the region bounded over the subinterval $ -\frac{\pi}{2} \leq x \leq 0$ is \textbf{below} is the $x-$ axis, its area when evaluated by a definite integral will be negative. However, an area cannot be negative. To therefore correct for this we must to take the \textbf{absolute value} of its definite integral so that
+\begin{align*}
+\text{Area} &= \int\limits_{\displaystyle -\nicefrac{\pi}{2}}^{\nicefrac{\pi}{2}} \sin x \, \mathrm{d}x\\
+&= \Bigg\vert \, \int\limits_{\displaystyle -\nicefrac{\pi}{2}}^{0} \sin x \, \mathrm{d}x \, \Bigg\vert + \int\limits_{0}^{\displaystyle \nicefrac{\pi}{2}} \sin x \, \mathrm{d}x \, \\
+&= \Bigg\vert \, -\cos x \Big\vert^0_{\displaystyle \nicefrac{-\pi}{2}} \, \Bigg\vert + \left( -\cos x \Big\vert^{\displaystyle \nicefrac{\pi}{2}}_0 \right)\\ 
+&= |-1| + (1)\\
+&= 2.
+\end{align*}
+\end{solution}
+\end{parts}
+\end{questions} %end of diagnostic test
+\end{document}
